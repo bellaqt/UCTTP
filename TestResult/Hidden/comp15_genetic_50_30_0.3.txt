@@ -1,0 +1,85 @@
+C:\Python313\python.exe D:\学校\学习课件\25s1\HDR\code\main.py 
+Running on: DataSet/Hidden/comp15.ctt
+course account: 72
+room account: 16
+timeslot(periodPerDay * Day): 25
+unavailability_constraints: {'ChiGenAn': [(0, 0), (0, 4), (4, 4)], 'CamEleAn': [(0, 0), (0, 1), (0, 2), (0, 3), (4, 1), (4, 2), (4, 3), (4, 4)], 'FonChiAn': [(0, 0), (0, 1), (4, 3), (4, 4)], 'StrIndAn': [(0, 2), (1, 2), (2, 2), (3, 2), (4, 2)], 'TecCosAn': [(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (4, 2), (4, 3), (4, 4)], 'Mat1Cn': [(0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 2), (3, 3), (3, 4), (4, 2), (4, 3), (4, 4)], 'MecRazCn': [(0, 4), (1, 4), (2, 4), (3, 4), (4, 4)], 'TecMatCn': [(0, 0), (0, 4), (1, 0), (1, 4), (2, 0), (2, 4), (3, 0), (3, 4)], 'ArcTecCn': [(0, 0), (0, 1), (0, 2), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'Idr2Cn': [(0, 2), (1, 2), (2, 2), (3, 2), (4, 2)], 'Mat1En': [(0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 2), (3, 3), (3, 4), (4, 2), (4, 3), (4, 4)], 'RetLogEn': [(1, 2), (1, 3), (1, 4), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'ComEleEn': [(0, 0), (0, 1), (0, 2), (1, 2), (3, 2), (4, 2), (4, 3), (4, 4)], 'EleSis1En': [(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (3, 0), (3, 1), (3, 2)], 'MetMatEn': [(0, 4), (1, 4), (2, 4), (3, 4), (4, 4)], 'RetCal1G1n': [(3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 2), (4, 3), (4, 4)], 'Mat1G2n': [(0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 2), (3, 3), (3, 4), (4, 2), (4, 3), (4, 4)], 'ChiG2n': [(0, 0), (0, 4), (4, 4)], 'TerAppG2n': [(0, 2), (1, 2), (2, 2), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'CalProG2n': [(0, 2), (1, 2), (2, 2), (3, 2), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'Mat1Mn': [(0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 2), (3, 3), (3, 4), (4, 2), (4, 3), (4, 4)], 'DisIndMn': [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (4, 3), (4, 4)], 'ComMecMn': [(0, 2), (0, 3), (1, 2), (2, 2), (3, 2), (4, 2), (4, 3), (4, 4)], 'CosMacMn': [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (4, 2), (4, 3), (4, 4)], 'TecMec1Mn': [(0, 0), (0, 1), (0, 2), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'IdrNumAns': [(0, 0), (0, 1), (0, 2), (3, 1), (3, 2), (4, 0), (4, 1), (4, 2)], 'PriIngAns': [(0, 0), (0, 2), (1, 0), (1, 2), (2, 0), (3, 0), (4, 0)], 'StaAns': [(0, 2), (1, 2), (2, 2), (3, 2), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'ArcTecCns': [(0, 0), (0, 1), (0, 2), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'EleTel1Ens': [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (4, 2), (4, 3), (4, 4)], 'AppIndGns': [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 2), (2, 2), (2, 3), (2, 4), (3, 2), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'RetCal2Gns': [(3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 2), (4, 3), (4, 4)], 'TecCos1Cv': [(0, 2), (1, 2), (2, 2), (3, 2), (4, 2)], 'StoArcCv': [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4)], 'TeoStr1Cv': [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 3), (2, 4)], 'ArcComCv': [(0, 2), (1, 2), (2, 1), (2, 2), (2, 3), (3, 2)], 'CalAut1Cv': [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 2)], 'CosZonCv': [(0, 2), (1, 2), (2, 2), (3, 2), (4, 2), (4, 4)], 'ImpTec1Cv': [(4, 4)], 'IdrAppCv': [(0, 2), (0, 4), (2, 2), (2, 4), (4, 4)], 'CalEle1Ev': [(0, 4), (1, 4), (2, 4), (3, 4), (4, 4)], 'CamEle1Ev': [(0, 0), (0, 1), (0, 2), (0, 3), (4, 1), (4, 2), (4, 3), (4, 4)], 'EleIndEv': [(3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'GesAziGv': [(4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'ChiInd1Gv': [(0, 0), (0, 1), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)], 'OrgPro1Gv': [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (4, 2), (4, 3), (4, 4)], 'Mac1Mv': [(0, 2), (1, 2), (2, 2), (3, 2), (4, 2)], 'TerAppMv': [(0, 0), (0, 1), (0, 2), (4, 4)], 'DisAssMv': [(0, 0), (0, 1), (0, 2), (4, 3), (4, 4)], 'MecVibMn': [(0, 2), (1, 2), (2, 2), (3, 2), (4, 2)]}
+
+Total Run Time: 0.06 seconds
+
+Final Best Fitness: 0
+Best Solution (timeslot, room) per course:
+ChiGenAn: Timeslot=16, Room=rA
+GeoAn: Timeslot=23, Room=r50
+CamEleAn: Timeslot=15, Room=rD
+FonChiAn: Timeslot=6, Room=r50
+IngConAn: Timeslot=13, Room=rB
+StrIndAn: Timeslot=21, Room=r37
+TecCosAn: Timeslot=14, Room=r38
+Mat1Cn: Timeslot=21, Room=rL
+MecRazCn: Timeslot=4, Room=rDS2
+DisCn: Timeslot=19, Room=r31
+TecMatCn: Timeslot=7, Room=r36
+ArcTecCn: Timeslot=2, Room=rB
+DisEdiCn: Timeslot=7, Room=r52
+Idr2Cn: Timeslot=23, Room=rA
+Mat1En: Timeslot=1, Room=r37
+ChiStaEn: Timeslot=14, Room=rF
+ConAutEn: Timeslot=2, Room=r31
+RetLogEn: Timeslot=7, Room=rL
+TeoRetEn: Timeslot=11, Room=r36
+ComEleEn: Timeslot=6, Room=r27
+EleSis1En: Timeslot=8, Room=r31
+MetMatEn: Timeslot=8, Room=r31
+RetCal1G1n: Timeslot=4, Room=r52
+Mat1G2n: Timeslot=0, Room=r50
+ChiG2n: Timeslot=1, Room=r27
+DisComEsG2n: Timeslot=5, Room=rL
+FonMecG2n: Timeslot=22, Room=rL
+TerAppG2n: Timeslot=11, Room=r31
+CalProG2n: Timeslot=14, Room=r27
+Mat1Mn: Timeslot=5, Room=r50
+DisIndMn: Timeslot=19, Room=rB
+DisIndEsMn: Timeslot=20, Room=r31
+FluMn: Timeslot=21, Room=r38
+ComMecMn: Timeslot=1, Room=rDS1
+CosMacMn: Timeslot=6, Room=r36
+TecMec1Mn: Timeslot=18, Room=rD
+Mat1Ar: Timeslot=17, Room=r52
+FonInfAr: Timeslot=6, Room=rL
+LabEle1Ar: Timeslot=16, Room=rE
+LabEle2Ar: Timeslot=19, Room=rDS2
+LabEle3Ar: Timeslot=2, Room=r31
+GeoAppAns: Timeslot=4, Room=r50
+IdrNumAns: Timeslot=24, Room=r31
+MecSuoAns: Timeslot=5, Room=r31
+PriIngAns: Timeslot=8, Room=rD
+StaPenAns: Timeslot=5, Room=rF
+StaAns: Timeslot=4, Room=rD
+ArcTecCns: Timeslot=11, Room=r38
+EleTel1Ens: Timeslot=7, Room=r52
+SisTel1Ens: Timeslot=6, Room=rL
+AppIndGns: Timeslot=0, Room=rDS1
+RetCal2Gns: Timeslot=22, Room=r37
+TecCos1Cv: Timeslot=20, Room=r38
+StoArcCv: Timeslot=22, Room=rB
+TeoStr1Cv: Timeslot=21, Room=r36
+MecCom1Cv: Timeslot=18, Room=r31
+ArcComCv: Timeslot=17, Room=r36
+CalAut1Cv: Timeslot=2, Room=r27
+CosZonCv: Timeslot=23, Room=r36
+ImpTec1Cv: Timeslot=18, Room=rDS1
+IdrAppCv: Timeslot=7, Room=r38
+RivSpeCv: Timeslot=23, Room=r31
+CalEle1Ev: Timeslot=22, Room=rL
+CamEle1Ev: Timeslot=10, Room=rA
+EleIndEv: Timeslot=11, Room=r38
+GesAziGv: Timeslot=24, Room=r38
+ChiInd1Gv: Timeslot=12, Room=rL
+OrgPro1Gv: Timeslot=17, Room=rE
+Mac1Mv: Timeslot=4, Room=rF
+TerAppMv: Timeslot=3, Room=r50
+DisAssMv: Timeslot=12, Room=rA
+MecVibMn: Timeslot=2, Room=rG
+
+Process finished with exit code 0

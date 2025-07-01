@@ -1,0 +1,43 @@
+C:\Python313\python.exe D:\学校\学习课件\25s1\HDR\code\main.py 
+Running on: DataSet/Early/comp01.ctt
+course account: 30
+room account: 6
+timeslot(periodPerDay * Day): 30
+unavailability_constraints: {'c0001': [(4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5)], 'c0004': [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5)], 'c0024': [(3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5)], 'c0025': [(2, 2), (2, 3), (2, 4), (2, 5), (3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5)], 'c0033': [(3, 2), (3, 3), (3, 4), (3, 5), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5)], 'c0071': [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2), (3, 0), (3, 1), (3, 2), (4, 0), (4, 1), (4, 2)]}
+
+Total Run Time: 0.53 seconds
+
+Final Best Fitness: 0
+Best Solution (timeslot, room) per course:
+c0001: Timeslot=17, Room=G
+c0002: Timeslot=22, Room=G
+c0004: Timeslot=7, Room=E
+c0005: Timeslot=29, Room=S
+c0014: Timeslot=13, Room=S
+c0015: Timeslot=15, Room=C
+c0016: Timeslot=5, Room=G
+c0017: Timeslot=9, Room=G
+c0024: Timeslot=10, Room=G
+c0025: Timeslot=13, Room=F
+c0078: Timeslot=0, Room=B
+c0030: Timeslot=26, Room=G
+c0031: Timeslot=19, Room=G
+c0032: Timeslot=19, Room=S
+c0033: Timeslot=3, Room=C
+c0057: Timeslot=14, Room=C
+c0058: Timeslot=7, Room=B
+c0059: Timeslot=17, Room=F
+c0061: Timeslot=25, Room=S
+c0062: Timeslot=25, Room=S
+c0063: Timeslot=24, Room=B
+c0064: Timeslot=8, Room=G
+c0065: Timeslot=18, Room=F
+c0066: Timeslot=11, Room=F
+c0067: Timeslot=25, Room=F
+c0068: Timeslot=4, Room=S
+c0069: Timeslot=3, Room=C
+c0070: Timeslot=12, Room=C
+c0071: Timeslot=17, Room=C
+c0072: Timeslot=23, Room=B
+
+Process finished with exit code 0

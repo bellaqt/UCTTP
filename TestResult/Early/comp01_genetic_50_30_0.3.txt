@@ -1,4 +1,3 @@
-C:\Python313\python.exe D:\学校\学习课件\25s1\HDR\code\main.py 
 Running on: DataSet/Early/comp01.ctt
 course account: 30
 room account: 6
@@ -9,35 +8,35 @@ Total Run Time: 0.02 seconds
 
 Final Best Fitness: 0
 Best Solution (timeslot, room) per course:
-c0001: Timeslot=18, Room=S
-c0002: Timeslot=10, Room=B
-c0004: Timeslot=15, Room=B
-c0005: Timeslot=23, Room=G
-c0014: Timeslot=15, Room=B
-c0015: Timeslot=10, Room=C
-c0016: Timeslot=13, Room=F
-c0017: Timeslot=2, Room=E
-c0024: Timeslot=4, Room=C
-c0025: Timeslot=6, Room=S
-c0078: Timeslot=9, Room=E
-c0030: Timeslot=14, Room=S
-c0031: Timeslot=21, Room=C
-c0032: Timeslot=21, Room=G
-c0033: Timeslot=15, Room=E
-c0057: Timeslot=24, Room=C
-c0058: Timeslot=10, Room=B
-c0059: Timeslot=10, Room=F
-c0061: Timeslot=24, Room=G
-c0062: Timeslot=11, Room=F
-c0063: Timeslot=20, Room=S
-c0064: Timeslot=15, Room=F
-c0065: Timeslot=1, Room=S
-c0066: Timeslot=12, Room=E
-c0067: Timeslot=8, Room=B
-c0068: Timeslot=5, Room=S
-c0069: Timeslot=2, Room=F
-c0070: Timeslot=27, Room=G
-c0071: Timeslot=4, Room=F
-c0072: Timeslot=27, Room=B
+c0001: Timeslot=7, Room=S
+c0002: Timeslot=28, Room=F
+c0004: Timeslot=28, Room=E
+c0005: Timeslot=15, Room=C
+c0014: Timeslot=26, Room=C
+c0015: Timeslot=20, Room=B
+c0016: Timeslot=2, Room=E
+c0017: Timeslot=14, Room=S
+c0024: Timeslot=1, Room=F
+c0025: Timeslot=3, Room=S
+c0078: Timeslot=9, Room=B
+c0030: Timeslot=4, Room=G
+c0031: Timeslot=18, Room=S
+c0032: Timeslot=28, Room=E
+c0033: Timeslot=17, Room=S
+c0057: Timeslot=21, Room=C
+c0058: Timeslot=18, Room=E
+c0059: Timeslot=29, Room=E
+c0061: Timeslot=14, Room=G
+c0062: Timeslot=17, Room=B
+c0063: Timeslot=16, Room=C
+c0064: Timeslot=26, Room=E
+c0065: Timeslot=0, Room=G
+c0066: Timeslot=27, Room=G
+c0067: Timeslot=7, Room=G
+c0068: Timeslot=25, Room=F
+c0069: Timeslot=29, Room=S
+c0070: Timeslot=8, Room=S
+c0071: Timeslot=10, Room=F
+c0072: Timeslot=7, Room=G
 
 Process finished with exit code 0

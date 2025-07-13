@@ -1,43 +1,42 @@
-C:\Python313\python.exe D:\学校\学习课件\25s1\HDR\code\main.py 
 Running on: DataSet/Early/comp01.ctt
 course account: 30
 room account: 6
 timeslot(periodPerDay * Day): 30
 unavailability_constraints: {'c0001': [(4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5)], 'c0004': [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5)], 'c0024': [(3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5)], 'c0025': [(2, 2), (2, 3), (2, 4), (2, 5), (3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5)], 'c0033': [(3, 2), (3, 3), (3, 4), (3, 5), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5)], 'c0071': [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2), (3, 0), (3, 1), (3, 2), (4, 0), (4, 1), (4, 2)]}
 
-Total Run Time: 0.16 seconds
+Total Run Time: 0.13 seconds
 
 Final Best Fitness: 0
 Best Solution (timeslot, room) per course:
-c0001: Timeslot=12, Room=E
-c0002: Timeslot=16, Room=B
-c0004: Timeslot=20, Room=E
-c0005: Timeslot=7, Room=F
+c0001: Timeslot=5, Room=F
+c0002: Timeslot=21, Room=F
+c0004: Timeslot=8, Room=G
+c0005: Timeslot=17, Room=B
 c0014: Timeslot=9, Room=G
-c0015: Timeslot=28, Room=G
-c0016: Timeslot=29, Room=E
-c0017: Timeslot=0, Room=B
-c0024: Timeslot=5, Room=E
+c0015: Timeslot=28, Room=B
+c0016: Timeslot=15, Room=G
+c0017: Timeslot=29, Room=B
+c0024: Timeslot=1, Room=F
 c0025: Timeslot=7, Room=C
-c0078: Timeslot=21, Room=B
-c0030: Timeslot=10, Room=G
-c0031: Timeslot=12, Room=B
-c0032: Timeslot=10, Room=C
-c0033: Timeslot=14, Room=B
-c0057: Timeslot=5, Room=B
-c0058: Timeslot=11, Room=E
-c0059: Timeslot=20, Room=G
-c0061: Timeslot=2, Room=G
-c0062: Timeslot=14, Room=C
-c0063: Timeslot=29, Room=F
-c0064: Timeslot=17, Room=S
-c0065: Timeslot=4, Room=S
-c0066: Timeslot=26, Room=C
-c0067: Timeslot=27, Room=S
-c0068: Timeslot=8, Room=E
-c0069: Timeslot=27, Room=G
-c0070: Timeslot=10, Room=B
-c0071: Timeslot=15, Room=S
-c0072: Timeslot=23, Room=C
+c0078: Timeslot=5, Room=B
+c0030: Timeslot=16, Room=B
+c0031: Timeslot=17, Room=E
+c0032: Timeslot=2, Room=E
+c0033: Timeslot=0, Room=B
+c0057: Timeslot=15, Room=F
+c0058: Timeslot=4, Room=S
+c0059: Timeslot=15, Room=C
+c0061: Timeslot=24, Room=S
+c0062: Timeslot=1, Room=S
+c0063: Timeslot=27, Room=F
+c0064: Timeslot=9, Room=F
+c0065: Timeslot=8, Room=B
+c0066: Timeslot=12, Room=E
+c0067: Timeslot=25, Room=E
+c0068: Timeslot=19, Room=B
+c0069: Timeslot=4, Room=B
+c0070: Timeslot=6, Room=B
+c0071: Timeslot=9, Room=E
+c0072: Timeslot=10, Room=C
 
 Process finished with exit code 0

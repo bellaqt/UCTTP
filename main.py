@@ -5,9 +5,9 @@ def main():
     filename = "DataSet/Early/comp01.ctt"
     #run 50 times, remain 30 items,mutation is 10%
     #generation -> population(Multiple complete curriculum) -> chromosome(A complete curriculum) -> gene(course)
-    generations = 50
-    population_size = 30
-    mutation_rate = 0.1
+    generations = 200
+    population_size = 150
+    mutation_rate = 0.3
 
     print("Running on:", filename)
 

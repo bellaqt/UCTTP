@@ -80,18 +80,26 @@ def parse_ctt_file(filename):
 def time_index(day, period, periods_per_day):
     return day * periods_per_day + period
 
-def initialize_population(courses, rooms, periods, days, periods_per_day,population_size, unavailability_constraints):
+def build_valid_assignment_map(courses, rooms, periods, periods_per_day, unavailability_constraints):
+    assignment_map = {}
+    for course in courses:
+        unavailable = unavailability_constraints.get(course, [])
+        unavailable_indices = set(time_index(d, p,periods_per_day) for d, p in unavailable)
+
+        valid = []
+        for t in range(periods):
+            if t not in unavailable_indices:
+                for r in rooms:
+                    valid.append((t, r))
+        assignment_map[course] = valid
+    return assignment_map
+
+def initialize_population(courses,population_size,valid_assignment_map):
     population = []
     for i in range(population_size):
         chromosome = []
         for course in courses:
-            valid_slots = []
-            unavailable = unavailability_constraints.get(course, [])
-            unavailable_indices = set(time_index(d, p, periods_per_day) for d, p in unavailable)
-            for t in range(periods):
-                if t not in unavailable_indices:
-                    for room in rooms:
-                        valid_slots.append((t, room))
+            valid_slots = valid_assignment_map.get(course, [])
             if valid_slots:
                 timeslot, room = random.choice(valid_slots)
                 chromosome.append((course, timeslot, room))
@@ -115,21 +123,18 @@ def fitness(chromosome, course_capacities, room_capacities):
         #soft constraints, no need add penalty
         #if course_size > room_size:
         #    penalty += 1
-    return -penalty
+    return penalty
 
 # ---------- roulette,pick a higher individual. ----------
 def roulette_wheel_selection(population, fitnesses):
     #Pan
-    min_fitness = min(fitnesses)
-    adjusted_fitnesses = [f - min_fitness + 1 for f in fitnesses]
+    adjusted_fitnesses = [1 / (f + 1) for f in fitnesses]
     total_fitness = sum(adjusted_fitnesses)
     pick = random.uniform(0, total_fitness)
-
     current = 0
     for i, fit in enumerate(adjusted_fitnesses):
         current += fit
         if current > pick:
-            #print(f"Selected roulette chromosome index: {i}")
             return population[i]
     return population[-1]
 
@@ -141,12 +146,17 @@ def crossover(parent1, parent2):
     return child1, child2
 
 # ---------- mutate, mutation_rate=0.1----------
-def mutate(chromosome, mutation_rate, rooms, periods):
+def mutate(chromosome, mutation_rate, valid_assignment_map):
     new_chromosome = chromosome[:]
     for i in range(len(chromosome)):
         course, timeslot, room = chromosome[i]
         if random.random() < mutation_rate:
-            new_chromosome[i] = (course,random.randint(0, periods - 1),random.choice(rooms))
+            valid_slots = valid_assignment_map.get(course, [])
+            if valid_slots:
+                timeslot, room = random.choice(valid_slots)
+                new_chromosome[i] = (course, timeslot, room)
+            else:
+                new_chromosome[i] = (course, -1, None)
     return new_chromosome
 
 # ---------- GA main function ----------
@@ -158,30 +168,42 @@ def genetic_algorithm(filename, generations, population_size, mutation_rate):
     print(f"timeslot(periodPerDay * Day): {periods}")
     print(f"unavailability_constraints: {unavailability_constraints}")
 
-    population = initialize_population(courses, rooms, periods,days, periods_per_day, population_size,unavailability_constraints)
+    valid_assignment_map = build_valid_assignment_map(
+        courses, rooms, periods, periods_per_day, unavailability_constraints
+    )
+
+    population = initialize_population(courses, population_size, valid_assignment_map)
 
     best_solution = None
-    best_fitness = float('-inf')
+    best_fitness = float('inf')
 
     for generation in range(generations):
         fitnesses = [fitness(chromo, course_capacities, room_capacities) for chromo in population]
-        strong_index = fitnesses.index(max(fitnesses))
-        #Keep the best individual to the next generation
+        strong_index = fitnesses.index(min(fitnesses))
+
+        gen_best = min(fitnesses)
+        #if gen_best == 0:
+        #    best_solution = population[strong_index]
+        #    best_fitness = gen_best
+        #    print(f"Best solution found at generation {generation}")
+        #    return best_solution, best_fitness, courses
+
+        #If not = 0, keep the best individual to the next generation
         new_population = [population[strong_index]]
 
         while len(new_population) < population_size:
             parent1 = roulette_wheel_selection(population, fitnesses)
             parent2 = roulette_wheel_selection(population, fitnesses)
             child1, child2 = crossover(parent1, parent2)
-            child1 = mutate(child1, mutation_rate, rooms, periods)
-            child2 = mutate(child2, mutation_rate, rooms, periods)
+            child1 = mutate(child1, mutation_rate, valid_assignment_map)
+            child2 = mutate(child2, mutation_rate, valid_assignment_map)
             new_population.extend([child1, child2])
 
         #update population
         population = new_population[:population_size]
 
-        gen_best = max(fitnesses)
-        if gen_best > best_fitness:
+        gen_best = min(fitnesses)
+        if gen_best < best_fitness:
             best_fitness = gen_best
             best_solution = population[fitnesses.index(gen_best)]
 

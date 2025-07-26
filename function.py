@@ -1,4 +1,5 @@
 import random
+import math
 
 # parse ctt file
 def parse_ctt_file(filename):
@@ -97,14 +98,14 @@ def build_valid_assignment_map(courses, rooms, periods, periods_per_day, unavail
 def initialize_population(courses,population_size,valid_assignment_map):
     population = []
     for i in range(population_size):
-        chromosome = []
+        chromosome = {}
         for course in courses:
             valid_slots = valid_assignment_map.get(course, [])
             if valid_slots:
                 timeslot, room = random.choice(valid_slots)
-                chromosome.append((course, timeslot, room))
+                chromosome[course] = (timeslot, room)
             else:
-                chromosome.append((course, -1, None))
+                chromosome[course] = (-1, None)
         population.append(chromosome)
     return population
 
@@ -112,7 +113,7 @@ def initialize_population(courses,population_size,valid_assignment_map):
 def fitness(chromosome, course_capacities, room_capacities):
     penalty = 0
     seen = set()
-    for course, timeslot, room in chromosome:
+    for course, (timeslot, room) in chromosome.items():
         key = (timeslot, room)
         if key in seen:
             penalty += 1
@@ -139,25 +140,64 @@ def roulette_wheel_selection(population, fitnesses):
     return population[-1]
 
 # ---------- generate child ----------
-def crossover(parent1, parent2):
+def crossover(parent1, parent2, valid_assignment_map):
     point = random.randint(1, len(parent1) - 1)
-    child1 = parent1[:point] + parent2[point:]
-    child2 = parent2[:point] + parent1[point:]
+    keys = list(parent1.keys())
+    #parent is chromosome, which equals population[i]
+    child1,child2 = {},{}
+    used1, used2 = set(), set()
+
+    for i in keys[:point]:
+        slot1 = parent1[i]
+        slot2 = parent2[i]
+        if slot1 not in used1:
+            child1[i] = slot1
+            used1.add(child1[i])
+        else:
+            child1[i] = (-1, None)
+
+        if slot2 not in used2:
+            child2[i] = slot2
+            used2.add(child2[i])
+        else:
+            child2[i] = (-1, None)
+
+    for j in keys[point:]:
+        slot1 = parent2[j]
+        slot2 = parent1[j]
+        if slot1 not in used1:
+            child1[j] = slot1
+            used1.add(child1[j])
+        elif parent1[j] not in used1:
+            child1[j] = parent1[j]
+            used1.add(parent1[j])
+        else:
+            child1[j] = (-1, None)
+
+        if slot2 not in used2:
+            child2[j] = slot2
+            used2.add(child2[j])
+        elif parent2[j] not in used2:
+            child2[j] = parent2[j]
+            used2.add(parent2[j])
+        else:
+            child2[j] = (-1, None)
     return child1, child2
 
 # ---------- mutate, mutation_rate=0.1----------
 def mutate(chromosome, mutation_rate, valid_assignment_map):
-    new_chromosome = chromosome[:]
-    for i in range(len(chromosome)):
-        course, timeslot, room = chromosome[i]
+    used_slots = set(chromosome.values())
+    for course, (timeslot, room) in chromosome.items():
         if random.random() < mutation_rate:
             valid_slots = valid_assignment_map.get(course, [])
-            if valid_slots:
-                timeslot, room = random.choice(valid_slots)
-                new_chromosome[i] = (course, timeslot, room)
-            else:
-                new_chromosome[i] = (course, -1, None)
-    return new_chromosome
+            available = [slot for slot in valid_slots if slot not in used_slots]
+
+            if available:
+                new_slot = random.choice(available)
+                used_slots.add(new_slot)
+                chromosome[course] = new_slot
+                used_slots.remove(chromosome[course])
+    return chromosome
 
 # ---------- GA main function ----------
 def genetic_algorithm(filename, generations, population_size, mutation_rate):
@@ -173,7 +213,6 @@ def genetic_algorithm(filename, generations, population_size, mutation_rate):
     )
 
     population = initialize_population(courses, population_size, valid_assignment_map)
-
     best_solution = None
     best_fitness = float('inf')
 
@@ -182,11 +221,11 @@ def genetic_algorithm(filename, generations, population_size, mutation_rate):
         strong_index = fitnesses.index(min(fitnesses))
 
         gen_best = min(fitnesses)
-        #if gen_best == 0:
-        #    best_solution = population[strong_index]
-        #    best_fitness = gen_best
-        #    print(f"Best solution found at generation {generation}")
-        #    return best_solution, best_fitness, courses
+        if gen_best == 0:
+            best_solution = population[strong_index]
+            best_fitness = gen_best
+            print(f"Best solution found at generation {generation}")
+            return best_solution, best_fitness, courses
 
         #If not = 0, keep the best individual to the next generation
         new_population = [population[strong_index]]
@@ -194,10 +233,11 @@ def genetic_algorithm(filename, generations, population_size, mutation_rate):
         while len(new_population) < population_size:
             parent1 = roulette_wheel_selection(population, fitnesses)
             parent2 = roulette_wheel_selection(population, fitnesses)
-            child1, child2 = crossover(parent1, parent2)
-            child1 = mutate(child1, mutation_rate, valid_assignment_map)
-            child2 = mutate(child2, mutation_rate, valid_assignment_map)
-            new_population.extend([child1, child2])
+            if parent1 != parent2:
+                child1, child2 = crossover(parent1, parent2, valid_assignment_map)
+                child1 = mutate(child1, mutation_rate, valid_assignment_map)
+                child2 = mutate(child2, mutation_rate, valid_assignment_map)
+                new_population.extend([child1, child2])
 
         #update population
         population = new_population[:population_size]
@@ -209,3 +249,56 @@ def genetic_algorithm(filename, generations, population_size, mutation_rate):
 
         #print(f"Generation {generation}: Best Solution = {best_solution} : Best Fitness = {best_fitness}")
     return best_solution, best_fitness, courses
+
+def simulated_annealing(filename, initial_temp, cooling_rate, min_temp, max_iter):
+    #Initial solution → Neighborhood generation → Acceptance criteria → Cooling mechanism → Termination condition
+    courses, rooms, periods,days, periods_per_day,unavailability_constraints,course_capacities, room_capacities = parse_ctt_file(filename)
+    print(f"course account: {len(courses)}")
+    print(f"room account: {len(rooms)}")
+    print(f"timeslot(periodPerDay * Day): {periods}")
+    print(f"unavailability_constraints: {unavailability_constraints}")
+
+    valid_assignment_map = build_valid_assignment_map(
+        courses, rooms, periods, periods_per_day, unavailability_constraints
+    )
+
+    current_solution = {}
+    for course in courses:
+        valid_slots = valid_assignment_map.get(course, [])
+        if valid_slots:
+            current_solution[course] = random.choice(valid_slots)
+        else:
+            current_solution[course] = (-1, None)
+
+    current_fitness = fitness(current_solution, course_capacities, room_capacities)
+
+    if current_fitness == 0:
+        return current_solution, current_fitness, courses
+
+    T = initial_temp
+
+    for iteration in range(max_iter):
+        if T <= min_temp:
+            break
+
+        neighbor = current_solution.copy()
+        course = random.choice(courses)
+        if valid_assignment_map[course]:
+            neighbor[course] = random.choice(valid_assignment_map[course])
+
+        neighbor_fitness = fitness(neighbor, course_capacities, room_capacities)
+        delta = neighbor_fitness - current_fitness
+
+        #delta < 0 means neighbor better than current
+        #e(0.01) ≈ 1.01005, e(-0.01) ≈ 0.99
+        if delta < 0 or random.random() < math.exp(-delta / T):
+            current_solution = neighbor
+            current_fitness = neighbor_fitness
+            if current_fitness == 0:
+                print('perfect')
+                return current_solution, current_fitness, courses
+
+        if iteration % 100 == 0:
+            T *= cooling_rate
+
+    return current_solution, current_fitness, courses

@@ -1,0 +1,53 @@
+Running on: DataSet/Hidden/comp18.ctt
+
+Final Best Fitness: 0
+Best Solution (timeslot, room) per course:
+LET-STO-StoMed2: Timeslot=31, Room=rVL
+LET-STO-StoMed1: Timeslot=6, Room=rM
+LET-ITA-LinIta: Timeslot=26, Room=rN
+LET-ITA-LetIta2: Timeslot=21, Room=rM
+LET-ITA-EleLinGenFil: Timeslot=12, Room=r1
+LET-GEO-StoCriCin: Timeslot=23, Room=rC2
+LET-GEO-Geo2: Timeslot=12, Room=r10
+LET-GEO-Geo1: Timeslot=26, Room=r1
+LET-FIL-StoSci: Timeslot=20, Room=rM
+LET-FIL-Est: Timeslot=21, Room=rC2
+LET-CST-StoRom: Timeslot=26, Room=rM
+LET-CST-StoGre: Timeslot=22, Room=rO
+LET-CST-EpiLat: Timeslot=24, Room=rC2
+LET-CLE-LinLetGre2: Timeslot=10, Room=rC2
+LET-CLE-LinLat: Timeslot=16, Room=r1
+LET-CLE-LinGre: Timeslot=22, Room=rVL
+LET-CLE-Glo: Timeslot=20, Room=r1
+LET-CLE-FilCla: Timeslot=10, Room=r10
+CBC-LIB-StoLibSta: Timeslot=31, Room=rL
+CBC-LIB-StoBib: Timeslot=27, Room=rC2
+CBC-LIB-PalLat: Timeslot=26, Room=rO
+CBC-LIB-InfDoc: Timeslot=15, Room=r10
+CBC-LIB-Cod: Timeslot=14, Room=rVL
+CBC-LIB-ArcSpe: Timeslot=10, Room=rO
+CBC-LIB-Arc: Timeslot=6, Room=rL
+CBC-ART-StoTecFot: Timeslot=16, Room=rL
+CBC-ART-StoTecArt: Timeslot=26, Room=rC2
+CBC-ART-StoRes: Timeslot=23, Room=r10
+CBC-ART-StoProArtCulMatMed: Timeslot=14, Room=rC1
+CBC-ART-StoMus: Timeslot=23, Room=rVL
+CBC-ART-StoDisGra: Timeslot=8, Room=rC2
+CBC-ART-StoCriCin: Timeslot=1, Room=rC2
+CBC-ART-StoCriArt: Timeslot=15, Room=rC2
+CBC-ART-StoArcMed: Timeslot=15, Room=rVL
+CBC-ART-StoArcCon: Timeslot=26, Room=r10
+CBC-ART-SocArt: Timeslot=25, Room=rL
+CBC-ART-MatCarCosResEdiSto: Timeslot=4, Room=r1
+CBC-ART-EleInfSciCatBenCul: Timeslot=12, Room=rVL
+CBC-ART-ArcStoArtMusA: Timeslot=20, Room=rC2
+CBC-ARC-TopRilMonAnt: Timeslot=19, Room=r10
+CBC-ARC-Palantro: Timeslot=25, Room=rM
+CBC-ARC-MatTecAppArc: Timeslot=4, Room=r10
+CBC-ARC-LinLat: Timeslot=6, Room=rC1
+CBC-ARC-Geo1: Timeslot=16, Room=rC2
+CBC-ARC-EtrAntIta: Timeslot=21, Room=rVL
+CBC-ARC-ArcCriMed: Timeslot=9, Room=rC2
+CBC-ARC-ArcCla2: Timeslot=0, Room=r10
+
+Total Run Time: 0.023 seconds

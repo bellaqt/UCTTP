@@ -1,0 +1,53 @@
+Running on: DataSet/Hidden/comp18.ctt
+
+Final Best Fitness: 0
+Best Solution (timeslot, room) per course:
+LET-STO-StoMed2: Timeslot=3, Room=rN
+LET-STO-StoMed1: Timeslot=8, Room=rC2
+LET-ITA-LinIta: Timeslot=17, Room=r10
+LET-ITA-LetIta2: Timeslot=30, Room=rVL
+LET-ITA-EleLinGenFil: Timeslot=14, Room=r1
+LET-GEO-StoCriCin: Timeslot=22, Room=rVL
+LET-GEO-Geo2: Timeslot=28, Room=r1
+LET-GEO-Geo1: Timeslot=10, Room=rC1
+LET-FIL-StoSci: Timeslot=21, Room=r10
+LET-FIL-Est: Timeslot=24, Room=rO
+LET-CST-StoRom: Timeslot=25, Room=rVL
+LET-CST-StoGre: Timeslot=26, Room=r1
+LET-CST-EpiLat: Timeslot=21, Room=rO
+LET-CLE-LinLetGre2: Timeslot=9, Room=rN
+LET-CLE-LinLat: Timeslot=24, Room=rC1
+LET-CLE-LinGre: Timeslot=31, Room=rO
+LET-CLE-Glo: Timeslot=23, Room=rC2
+LET-CLE-FilCla: Timeslot=9, Room=r1
+CBC-LIB-StoLibSta: Timeslot=14, Room=rL
+CBC-LIB-StoBib: Timeslot=15, Room=rC1
+CBC-LIB-PalLat: Timeslot=20, Room=rO
+CBC-LIB-InfDoc: Timeslot=2, Room=rN
+CBC-LIB-Cod: Timeslot=10, Room=rVL
+CBC-LIB-ArcSpe: Timeslot=10, Room=rC2
+CBC-LIB-Arc: Timeslot=7, Room=rL
+CBC-ART-StoTecFot: Timeslot=31, Room=r10
+CBC-ART-StoTecArt: Timeslot=28, Room=rC1
+CBC-ART-StoRes: Timeslot=9, Room=rC2
+CBC-ART-StoProArtCulMatMed: Timeslot=17, Room=r1
+CBC-ART-StoMus: Timeslot=23, Room=rO
+CBC-ART-StoDisGra: Timeslot=7, Room=rN
+CBC-ART-StoCriCin: Timeslot=22, Room=rL
+CBC-ART-StoCriArt: Timeslot=20, Room=rC2
+CBC-ART-StoArcMed: Timeslot=10, Room=rO
+CBC-ART-StoArcCon: Timeslot=27, Room=rM
+CBC-ART-SocArt: Timeslot=26, Room=rO
+CBC-ART-MatCarCosResEdiSto: Timeslot=13, Room=rL
+CBC-ART-EleInfSciCatBenCul: Timeslot=0, Room=rN
+CBC-ART-ArcStoArtMusA: Timeslot=23, Room=rL
+CBC-ARC-TopRilMonAnt: Timeslot=3, Room=rM
+CBC-ARC-Palantro: Timeslot=18, Room=rL
+CBC-ARC-MatTecAppArc: Timeslot=8, Room=rO
+CBC-ARC-LinLat: Timeslot=13, Room=rO
+CBC-ARC-Geo1: Timeslot=3, Room=r1
+CBC-ARC-EtrAntIta: Timeslot=26, Room=r10
+CBC-ARC-ArcCriMed: Timeslot=13, Room=rN
+CBC-ARC-ArcCla2: Timeslot=7, Room=rM
+
+Total Run Time: 0.011 seconds

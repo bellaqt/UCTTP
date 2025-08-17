@@ -1,0 +1,36 @@
+Running on: DataSet/Late/comp11.ctt
+
+Final Best Fitness: 0
+Best Solution (timeslot, room) per course:
+c0006: Timeslot=9, Room=F
+c0007: Timeslot=41, Room=C
+c0008: Timeslot=29, Room=F
+c0009: Timeslot=39, Room=G
+c0017: Timeslot=23, Room=O
+c0018: Timeslot=43, Room=C
+c0019: Timeslot=7, Room=C
+c0079: Timeslot=39, Room=F
+c0081: Timeslot=3, Room=C
+c0082: Timeslot=23, Room=F
+c0083: Timeslot=38, Room=LUF2
+c0085: Timeslot=19, Room=G
+c0026: Timeslot=16, Room=G
+c0027: Timeslot=24, Room=O
+c0028: Timeslot=38, Room=F
+c0034: Timeslot=36, Room=C
+c0036: Timeslot=2, Room=G
+c0038: Timeslot=0, Room=LUF2
+c0040: Timeslot=30, Room=C
+c0042: Timeslot=35, Room=O
+c0044: Timeslot=34, Room=G
+c0045: Timeslot=2, Room=C
+c0107: Timeslot=29, Room=C
+c0108: Timeslot=8, Room=G
+c0109: Timeslot=1, Room=G
+c0110: Timeslot=10, Room=F
+c0111: Timeslot=37, Room=O
+c0113: Timeslot=16, Room=LUF2
+c0115: Timeslot=33, Room=O
+c0116: Timeslot=17, Room=C
+
+Total Run Time: 0.005 seconds

@@ -1,0 +1,60 @@
+Running on: DataSet/Early/comp05.ctt
+
+Final Best Fitness: 0
+Best Solution (timeslot, room) per course:
+LinTed1: Timeslot=13, Room=A
+AlfInf: Timeslot=0, Room=A
+LetIta1: Timeslot=3, Room=C1
+FilTesItaCS: Timeslot=20, Room=A
+LinGreA: Timeslot=27, Room=O
+LinLatA: Timeslot=4, Room=C1
+LinLetGre1: Timeslot=10, Room=A
+LinLetLat1: Timeslot=8, Room=A
+LetCriAnt: Timeslot=16, Room=14
+Papiro: Timeslot=12, Room=L
+EpiGre: Timeslot=13, Room=14
+StoMod1: Timeslot=8, Room=C1
+StoCon: Timeslot=10, Room=B
+Geo2: Timeslot=19, Room=O
+AntCul1: Timeslot=0, Room=15
+StoFil1: Timeslot=23, Room=15
+StoCriChi: Timeslot=24, Room=M
+StoSci: Timeslot=24, Room=10
+MetRicArc: Timeslot=4, Room=O
+ArcCla1: Timeslot=21, Room=O
+LinLatB: Timeslot=8, Room=M
+Numism: Timeslot=2, Room=L
+PrePro: Timeslot=18, Room=C1
+StoVicOriAnt: Timeslot=15, Room=15
+ArcEge: Timeslot=13, Room=10
+FilSem: Timeslot=23, Room=A
+LegBenCul1: Timeslot=15, Room=B
+Bibeco: Timeslot=10, Room=L
+ConBenArcLib: Timeslot=24, Room=L
+ResBenArcLib: Timeslot=17, Room=L
+InfArcBib: Timeslot=2, Room=A
+TeoTecCatCla: Timeslot=5, Room=A
+StoArtMed1: Timeslot=21, Room=M
+IcoIcoA: Timeslot=5, Room=15
+IcoIcoB: Timeslot=32, Room=10
+StoArtMod1: Timeslot=13, Room=15
+MetRicStoArt: Timeslot=11, Room=A
+StoArtLatAmeA: Timeslot=5, Room=O
+StoArtCon1: Timeslot=23, Room=14
+PsiArt: Timeslot=28, Room=B
+ArcPae: Timeslot=5, Room=B
+LetIta4CS: Timeslot=25, Room=A
+StoGreCS: Timeslot=0, Room=14
+StoMedCS: Timeslot=22, Room=A
+BioArcCS: Timeslot=10, Room=M
+Antrop: Timeslot=4, Room=L
+LegBenCul2: Timeslot=6, Room=C1
+StoArtMed2CS: Timeslot=28, Room=A
+ChiAppBenCul: Timeslot=7, Room=C1
+StoArc: Timeslot=26, Room=C1
+StoArt: Timeslot=7, Room=O
+FonSocAntCulI: Timeslot=19, Room=L
+Bibgra: Timeslot=11, Room=M
+BibgraCS: Timeslot=5, Room=C1
+
+Total Run Time: 0.028 seconds

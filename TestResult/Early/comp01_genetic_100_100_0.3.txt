@@ -1,42 +1,36 @@
 Running on: DataSet/Early/comp01.ctt
-course account: 30
-room account: 6
-timeslot(periodPerDay * Day): 30
-unavailability_constraints: {'c0001': [(4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5)], 'c0004': [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5)], 'c0024': [(3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5)], 'c0025': [(2, 2), (2, 3), (2, 4), (2, 5), (3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5)], 'c0033': [(3, 2), (3, 3), (3, 4), (3, 5), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5)], 'c0071': [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2), (3, 0), (3, 1), (3, 2), (4, 0), (4, 1), (4, 2)]}
-
-Total Run Time: 0.14 seconds
 
 Final Best Fitness: 0
 Best Solution (timeslot, room) per course:
-c0001: Timeslot=14, Room=E
-c0002: Timeslot=22, Room=G
-c0004: Timeslot=24, Room=F
-c0005: Timeslot=12, Room=G
-c0014: Timeslot=20, Room=B
-c0015: Timeslot=1, Room=B
-c0016: Timeslot=26, Room=F
-c0017: Timeslot=12, Room=S
-c0024: Timeslot=12, Room=B
-c0025: Timeslot=13, Room=S
-c0078: Timeslot=11, Room=F
-c0030: Timeslot=3, Room=F
-c0031: Timeslot=16, Room=B
-c0032: Timeslot=6, Room=F
-c0033: Timeslot=10, Room=F
-c0057: Timeslot=9, Room=C
-c0058: Timeslot=3, Room=C
-c0059: Timeslot=16, Room=F
-c0061: Timeslot=15, Room=C
-c0062: Timeslot=8, Room=B
-c0063: Timeslot=20, Room=G
-c0064: Timeslot=21, Room=G
-c0065: Timeslot=6, Room=S
-c0066: Timeslot=0, Room=B
-c0067: Timeslot=20, Room=S
-c0068: Timeslot=8, Room=S
-c0069: Timeslot=7, Room=F
-c0070: Timeslot=16, Room=B
-c0071: Timeslot=5, Room=F
-c0072: Timeslot=12, Room=E
+c0001: Timeslot=13, Room=B
+c0002: Timeslot=0, Room=F
+c0004: Timeslot=25, Room=C
+c0005: Timeslot=10, Room=F
+c0014: Timeslot=9, Room=G
+c0015: Timeslot=26, Room=G
+c0016: Timeslot=12, Room=G
+c0017: Timeslot=18, Room=E
+c0024: Timeslot=1, Room=E
+c0025: Timeslot=3, Room=C
+c0078: Timeslot=25, Room=G
+c0030: Timeslot=18, Room=F
+c0031: Timeslot=12, Room=B
+c0032: Timeslot=7, Room=E
+c0033: Timeslot=4, Room=S
+c0057: Timeslot=16, Room=B
+c0058: Timeslot=24, Room=G
+c0059: Timeslot=17, Room=S
+c0061: Timeslot=19, Room=S
+c0062: Timeslot=25, Room=S
+c0063: Timeslot=4, Room=F
+c0064: Timeslot=3, Room=S
+c0065: Timeslot=16, Room=S
+c0066: Timeslot=14, Room=G
+c0067: Timeslot=27, Room=B
+c0068: Timeslot=15, Room=E
+c0069: Timeslot=18, Room=S
+c0070: Timeslot=15, Room=B
+c0071: Timeslot=15, Room=G
+c0072: Timeslot=18, Room=G
 
-Process finished with exit code 0
+Total Run Time: 0.005 seconds

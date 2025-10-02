@@ -10,42 +10,51 @@ def main():
     print("3 - GA + SA (Hybrid)")
     choice = input("Your choice: ").strip()
 
-    filename = "DataSet/Early/comp01.ctt"
-
-    print("Running on:", filename)
+    filename = "DataSet/Scalability/comp16_10.ctt"
 
     start_time = time.time()
 
     if choice == "1":
         # run 50 times, remain 30 items,mutation is 10%
         # generation -> population(Multiple complete curriculum) -> chromosome(A complete curriculum) -> gene(course)
-        generations = 150
-        population_size = 100
-        mutation_rate = 0.1
-        solution, fitness, courses = genetic_algorithm(filename, generations, population_size, mutation_rate)
+        generations = 200
+        population_size = 150
+        mutation_rate = 0.3
+        hybrid = False
+        solution, fitness, courses = genetic_algorithm(filename, generations, population_size, mutation_rate, hybrid)
         end_time = time.time()
     elif choice == "2":
         initial_temp = 100
-        cooling_rate = 0.9
+        cooling_rate = 0.97
         min_temp = 0.01
-        max_iter = 10000
+        max_iter = 30000
         solution, fitness, courses = simulated_annealing(filename, initial_temp, cooling_rate, min_temp, max_iter)
         end_time = time.time()
     elif choice == "3":
-        print('TODO')
-        solution, fitness, courses = None,None,None
+        generations = 50
+        population_size = 30
+        mutation_rate = 0.1
+        hybrid = True
+        solution, fitness, courses = genetic_algorithm(filename, generations, population_size, mutation_rate, hybrid)
         end_time = time.time()
     else:
         print("Invalid choice. Please enter 1, 2, or 3.")
         exit()
 
     running_time = end_time - start_time
-    print(f"\nTotal Run Time: {running_time:.2f} seconds")
+    print(running_time)
+    output_file = "TestResult/Scalability/comp16_10_SA_100_0.97_0.01_30000.txt"
 
-    print("\nFinal Best Fitness:", fitness)
-    print("Best Solution (timeslot, room) per course:")
-    for idx, (course, (timeslot, room)) in enumerate(solution.items()):
-        print(f"{course}: Timeslot={timeslot}, Room={room}")
+    with open(output_file, "w") as f:
+        f.write(f"Running on: {filename}\n")
+        f.write(f"\nFinal Best Fitness: {fitness}\n")
+        f.write("Best Solution (timeslot, room) per course:\n")
+        for idx, (course, (timeslot, room)) in enumerate(solution.items()):
+            f.write(f"{course}: Timeslot={timeslot}, Room={room}\n")
+
+        f.write(f"\nTotal Run Time: {running_time:.3f} seconds\n")
+
+    print(f"Results have been written to {output_file}")
 
     #chromsome example
     #{'c0001': (21, 'F'), 'c0002': (0, 'B'), 'c0004': (27, 'C'), 'c0005': (10, 'G'), 'c0014': (14, 'E'),

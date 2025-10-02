@@ -12,6 +12,7 @@ def parse_ctt_file(filename):
 
     course_capacities = {}
     room_capacities = {}
+    course_teachers = {}
 
     with open(filename, 'r') as file:
         lines = file.readlines()
@@ -53,11 +54,10 @@ def parse_ctt_file(filename):
         if in_courses:
             #get courses
             course = line.split()
-            if len(course) >= 1:
-                #get rooms
-                courses.append(course[0])
-                capacity = int(course[4])
-                course_capacities[course[0]] = capacity
+            if len(course) >= 2:
+                course_id, teacher_id = course[0], course[1]
+                courses.append(course_id)
+                course_teachers[course_id] = teacher_id
         elif in_rooms:
             parts = line.split()
             if len(parts) >= 1:
@@ -75,7 +75,7 @@ def parse_ctt_file(filename):
                 unavailability_constraints[course_id].append((day, period))
 
     periods = days * periods_per_day
-    return courses, rooms, periods, days, periods_per_day, unavailability_constraints, course_capacities, room_capacities
+    return courses, rooms, periods, days, periods_per_day, unavailability_constraints, course_capacities, room_capacities,course_teachers
 
 # init population
 def time_index(day, period, periods_per_day):
@@ -110,20 +110,28 @@ def initialize_population(courses,population_size,valid_assignment_map):
     return population
 
 # fitness
-def fitness(chromosome, course_capacities, room_capacities):
+def fitness(chromosome, course_teachers):
     penalty = 0
     seen = set()
+    timeslot_courses = {}
+
     for course, (timeslot, room) in chromosome.items():
         key = (timeslot, room)
         if key in seen:
             penalty += 1
         seen.add(key)
 
-        course_size = course_capacities.get(course, 0)
-        room_size = room_capacities.get(room, 0)
-        #soft constraints, no need add penalty
-        #if course_size > room_size:
-        #    penalty += 1
+        if timeslot not in timeslot_courses:
+            timeslot_courses[timeslot] = []
+        timeslot_courses[timeslot].append(course)
+
+    for ts, course_list in timeslot_courses.items():
+        teachers = [course_teachers.get(c) for c in course_list]
+        for i in range(len(teachers)):
+            for j in range(i + 1, len(teachers)):
+                if teachers[i] == teachers[j]:
+                    penalty += 1
+
     return penalty
 
 # ---------- roulette,pick a higher individual. ----------
@@ -200,9 +208,9 @@ def mutate(chromosome, mutation_rate, valid_assignment_map):
     return chromosome
 
 # ---------- GA main function ----------
-def genetic_algorithm(filename, generations, population_size, mutation_rate):
+def genetic_algorithm(filename, generations, population_size, mutation_rate, hybrid):
     #get course,room,timeslot,unavailable
-    courses, rooms, periods,days, periods_per_day,unavailability_constraints,course_capacities, room_capacities = parse_ctt_file(filename)
+    courses, rooms, periods,days, periods_per_day,unavailability_constraints,course_capacities, room_capacities, course_teachers = parse_ctt_file(filename)
     print(f"course account: {len(courses)}")
     print(f"room account: {len(rooms)}")
     print(f"timeslot(periodPerDay * Day): {periods}")
@@ -217,18 +225,20 @@ def genetic_algorithm(filename, generations, population_size, mutation_rate):
     best_fitness = float('inf')
 
     for generation in range(generations):
-        fitnesses = [fitness(chromo, course_capacities, room_capacities) for chromo in population]
+        fitnesses = [fitness(chromo, course_teachers) for chromo in population]
         strong_index = fitnesses.index(min(fitnesses))
 
         gen_best = min(fitnesses)
+        best_candidate = population[strong_index]
+
         if gen_best == 0:
-            best_solution = population[strong_index]
+            best_solution = best_candidate
             best_fitness = gen_best
             print(f"Best solution found at generation {generation}")
             return best_solution, best_fitness, courses
 
         #If not = 0, keep the best individual to the next generation
-        new_population = [population[strong_index]]
+        new_population = [best_candidate]
 
         while len(new_population) < population_size:
             parent1 = roulette_wheel_selection(population, fitnesses)
@@ -245,35 +255,51 @@ def genetic_algorithm(filename, generations, population_size, mutation_rate):
         gen_best = min(fitnesses)
         if gen_best < best_fitness:
             best_fitness = gen_best
-            best_solution = population[fitnesses.index(gen_best)]
+            best_solution = best_candidate
 
+    if hybrid:
+        print("\nRunning Simulated Annealing for local optimization...\n")
+        best_solution, best_fitness, courses = simulated_annealing(
+            filename,
+            initial_temp=100,
+            cooling_rate=0.97,
+            min_temp=0.01,
+            max_iter=30000,
+            initial_solution=best_solution,
+            valid_assignment_map=valid_assignment_map,
+            best_fitness=best_fitness
+        )
         #print(f"Generation {generation}: Best Solution = {best_solution} : Best Fitness = {best_fitness}")
     return best_solution, best_fitness, courses
 
-def simulated_annealing(filename, initial_temp, cooling_rate, min_temp, max_iter):
+def simulated_annealing(filename, initial_temp, cooling_rate, min_temp, max_iter, initial_solution = None, valid_assignment_map = None,best_fitness = None):
     #Initial solution → Neighborhood generation → Acceptance criteria → Cooling mechanism → Termination condition
-    courses, rooms, periods,days, periods_per_day,unavailability_constraints,course_capacities, room_capacities = parse_ctt_file(filename)
+    courses, rooms, periods,days, periods_per_day,unavailability_constraints,course_capacities, room_capacities,course_teachers = parse_ctt_file(filename)
     print(f"course account: {len(courses)}")
     print(f"room account: {len(rooms)}")
     print(f"timeslot(periodPerDay * Day): {periods}")
     print(f"unavailability_constraints: {unavailability_constraints}")
 
-    valid_assignment_map = build_valid_assignment_map(
-        courses, rooms, periods, periods_per_day, unavailability_constraints
-    )
+    if initial_solution is None:
+        valid_assignment_map = build_valid_assignment_map(
+            courses, rooms, periods, periods_per_day, unavailability_constraints
+        )
+        current_solution = {}
+        for course in courses:
+            valid_slots = valid_assignment_map.get(course, [])
+            if valid_slots:
+                current_solution[course] = random.choice(valid_slots)
+            else:
+                current_solution[course] = (-1, None)
 
-    current_solution = {}
-    for course in courses:
-        valid_slots = valid_assignment_map.get(course, [])
-        if valid_slots:
-            current_solution[course] = random.choice(valid_slots)
-        else:
-            current_solution[course] = (-1, None)
+        current_fitness = fitness(current_solution, course_teachers)
 
-    current_fitness = fitness(current_solution, course_capacities, room_capacities)
-
-    if current_fitness == 0:
-        return current_solution, current_fitness, courses
+        if current_fitness == 0:
+            return current_solution, current_fitness, courses
+    else:
+        valid_assignment_map = valid_assignment_map
+        current_solution = initial_solution.copy()
+        current_fitness = best_fitness
 
     T = initial_temp
 
@@ -286,7 +312,7 @@ def simulated_annealing(filename, initial_temp, cooling_rate, min_temp, max_iter
         if valid_assignment_map[course]:
             neighbor[course] = random.choice(valid_assignment_map[course])
 
-        neighbor_fitness = fitness(neighbor, course_capacities, room_capacities)
+        neighbor_fitness = fitness(neighbor, course_teachers)
         delta = neighbor_fitness - current_fitness
 
         #delta < 0 means neighbor better than current
@@ -295,10 +321,11 @@ def simulated_annealing(filename, initial_temp, cooling_rate, min_temp, max_iter
             current_solution = neighbor
             current_fitness = neighbor_fitness
             if current_fitness == 0:
-                print('perfect')
                 return current_solution, current_fitness, courses
 
         if iteration % 100 == 0:
             T *= cooling_rate
+            #compare best run time and fitness, different dataset, compare result with other paper, run time, general algorithm
+            #avg test results
 
     return current_solution, current_fitness, courses

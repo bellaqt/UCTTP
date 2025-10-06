@@ -96,6 +96,6 @@ def scale_dataset(base_file, scale, out_file):
         f.write("END.\n")
 
 scale_dataset(r"DataSet\Hidden\comp16.ctt",
-              scale=10,
-              out_file=r"DataSet\Scalability\comp16_10.ctt")
+              scale=3,
+              out_file=r"DataSet\Scalability\comp16_3.ctt")
 print('Scale Done')

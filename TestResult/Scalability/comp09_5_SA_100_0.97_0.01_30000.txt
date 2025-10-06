@@ -383,4 +383,4 @@ c0377: Timeslot=20, Room=R69
 c0378: Timeslot=12, Room=R73
 c0379: Timeslot=1, Room=R31
 
-Total Run Time: 3.085 seconds
+Total Run Time: 6.085 seconds

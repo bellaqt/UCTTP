@@ -543,4 +543,4 @@ c0537: Timeslot=0, Room=R58
 c0538: Timeslot=1, Room=R81
 c0539: Timeslot=9, Room=R45
 
-Total Run Time: 5.150 seconds
+Total Run Time: 12.437 seconds

@@ -10,7 +10,7 @@ def main():
     print("3 - GA + SA (Hybrid)")
     choice = input("Your choice: ").strip()
 
-    filename = "DataSet/Scalability/comp16_5.ctt"
+    filename = "DataSet/Scalability/comp02_4.ctt"
 
     start_time = time.time()
 
@@ -43,7 +43,7 @@ def main():
 
     running_time = end_time - start_time
     print(running_time)
-    output_file = "TestResult/Scalability/comp16_5_hybrid_50_30_0.1_100_0.97_0.01_30000.txt"
+    output_file = "TestResult/Scalability/comp02_4_hybrid_50_30_0.1_100_0.97_0.01_30000.txt"
 
     with open(output_file, "w") as f:
         f.write(f"Running on: {filename}\n")

@@ -10,15 +10,15 @@ def main():
     print("3 - GA + SA (Hybrid)")
     choice = input("Your choice: ").strip()
 
-    filename = "DataSet/Scalability/comp02_4.ctt"
+    filename = "DataSet/Scalability/comp02_8.ctt"
 
     start_time = time.time()
 
     if choice == "1":
         # run 50 times, remain 30 items,mutation is 10%
         # generation -> population(Multiple complete curriculum) -> chromosome(A complete curriculum) -> gene(course)
-        generations = 50
-        population_size = 30
+        generations = 200
+        population_size = 150
         mutation_rate = 0.1
         hybrid = False
         solution, fitness, courses = genetic_algorithm(filename, generations, population_size, mutation_rate, hybrid)
@@ -43,7 +43,7 @@ def main():
 
     running_time = end_time - start_time
     print(running_time)
-    output_file = "TestResult/Scalability/comp02_4_hybrid_50_30_0.1_100_0.97_0.01_30000.txt"
+    output_file = "TestResult/Scalability/comp02_8_GA_200_150_0.1.txt"
 
     with open(output_file, "w") as f:
         f.write(f"Running on: {filename}\n")

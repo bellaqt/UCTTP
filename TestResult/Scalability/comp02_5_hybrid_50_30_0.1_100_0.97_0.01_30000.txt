@@ -413,4 +413,4 @@ c0407: Timeslot=4, Room=R32
 c0408: Timeslot=2, Room=R64
 c0409: Timeslot=17, Room=R0
 
-Total Run Time: 4.624 seconds
+Total Run Time: 3.330 seconds

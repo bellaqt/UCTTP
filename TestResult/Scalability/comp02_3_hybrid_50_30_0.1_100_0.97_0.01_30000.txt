@@ -249,4 +249,4 @@ c0243: Timeslot=23, Room=R43
 c0244: Timeslot=11, Room=R28
 c0245: Timeslot=11, Room=R11
 
-Total Run Time: 0.445 seconds
+Total Run Time: 0.370 seconds

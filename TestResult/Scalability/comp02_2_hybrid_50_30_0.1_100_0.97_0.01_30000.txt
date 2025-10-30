@@ -167,4 +167,4 @@ c0161: Timeslot=8, Room=R31
 c0162: Timeslot=14, Room=R24
 c0163: Timeslot=2, Room=R16
 
-Total Run Time: 0.096 seconds
+Total Run Time: 0.047 seconds

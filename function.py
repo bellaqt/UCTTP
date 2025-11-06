@@ -1,6 +1,12 @@
 import random
 import math
 
+unavailability_constraints = {}
+course_capacities = {}
+
+room_capacities = {}
+course_teachers = {}
+
 # parse ctt file
 def parse_ctt_file(filename):
     courses = []
@@ -8,11 +14,6 @@ def parse_ctt_file(filename):
     periods = 0
     days = 0
     periods_per_day = 0
-    unavailability_constraints = {}
-
-    course_capacities = {}
-    room_capacities = {}
-    course_teachers = {}
 
     with open(filename, 'r') as file:
         lines = file.readlines()
@@ -55,9 +56,10 @@ def parse_ctt_file(filename):
             #get courses
             course = line.split()
             if len(course) >= 2:
-                course_id, teacher_id = course[0], course[1]
+                course_id, teacher_id,course_capacity = course[0], course[1],course[4]
                 courses.append(course_id)
                 course_teachers[course_id] = teacher_id
+                course_capacities[course_id] = course_capacity
         elif in_rooms:
             parts = line.split()
             if len(parts) >= 1:
@@ -120,6 +122,13 @@ def fitness(chromosome, course_teachers):
         if key in seen:
             penalty += 1
         seen.add(key)
+
+        if (course, timeslot) in unavailability_constraints:
+            penalty += 1
+
+        if room is not None and course is not None:
+            if int(course_capacities[course]) > int(room_capacities[room]):
+                penalty += 1
 
         if timeslot not in timeslot_courses:
             timeslot_courses[timeslot] = []
@@ -308,9 +317,17 @@ def simulated_annealing(filename, initial_temp, cooling_rate, min_temp, max_iter
             break
 
         neighbor = current_solution.copy()
+        #course = random.choice(courses)
+        #if valid_assignment_map[course]:
+        #    neighbor[course] = random.choice(valid_assignment_map[course])
         course = random.choice(courses)
-        if valid_assignment_map[course]:
-            neighbor[course] = random.choice(valid_assignment_map[course])
+        timeslot, room = current_solution[course]
+
+        if random.random() < 0.5:
+            new_timeslot = (timeslot + random.choice([-1, 1])) % periods
+            neighbor[course] = (new_timeslot, room)
+        else:
+            neighbor[course] = (timeslot, random.choice(rooms))
 
         neighbor_fitness = fitness(neighbor, course_teachers)
         delta = neighbor_fitness - current_fitness
